@@ -11,9 +11,10 @@
   	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
   	http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
-	
+
 	<!-- 开启扫描 -->
 	<mvc:annotation-driven>
+
 		<mvc:message-converters>
 			<bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">  
             <property name="supportedMediaTypes">  
@@ -68,6 +69,10 @@
 	         </list>   
 	   </property>  
 	</bean>-->
-	
-  
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF" />
+		<property name="suffix" value="" />
+	</bean>
+
 </beans>
